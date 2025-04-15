@@ -1,5 +1,5 @@
 # Ex02 Django ORM Web Application
-## Date: 13.04.2025
+## Date: 15.04.2025
 
 ## AIM
 To develop a Django application to store and retrieve data from Movies Database using Object Relational Mapping(ORM).
@@ -24,26 +24,29 @@ Execute Django admin and create details for 10 books
 models.py 
 from django.db import models
 from django.contrib import admin
-class Employee(models.Model):
-    USER_ID = models.IntegerField(primary_key=True)
-    USER_NAME = models.CharField(max_length=100)
+class Movie(models.Model):
+    USER_ID = models.CharField(max_length=300,help_text='USER ID')
+    USER_NAME = models.CharField(max_length=300)
     PHONE_NUMBER = models.IntegerField()
     EMAIL = models.EmailField()
-    MOVIE_NAME = models.CharField(max_length=100)
-    SEATS = models.IntegerField()
+    MOVIE_NAME = models.CharField(max_length=300)
+    DATE = models.DateField()
+    SHOW_TIME = models.TimeField()
+    SEATS_Number= models.IntegerField()
 
-class EmployeeAdmin(admin.ModelAdmin):
-    list_display = ('USER_ID', 'USER_NAME', 'PHONE_NUMBER', 'EMAIL', 'MOVIE_NAME', 'SEATS')
+class MovieAdmin(admin.ModelAdmin):
+    list_display = ('USER_ID', 'USER_NAME', 'PHONE_NUMBER', 'EMAIL', 'MOVIE_NAME', 'DATE','SEATS_Number','SHOW_TIME')
+
      
      admin.py
-     from django.contrib import admin
-     from .models import Employee,EmployeeAdmin
-     admin.site.register(Employee,EmployeeAdmin)
+    from django.contrib import admin
+    from .models import Movie,MovieAdmin
+    admin.site.register(Movie,MovieAdmin)
 
 ```
 
 ## OUTPUT
-![alt text](<Screenshot 2025-04-13 215325.png>)
+![alt text](<Screenshot 2025-04-15 173745.png>)
 
 ## RESULT
 Thus the program for creating a database using ORM hass been executed successfully
